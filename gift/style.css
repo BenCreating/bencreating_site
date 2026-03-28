@@ -126,27 +126,53 @@ body {
   cursor: not-allowed;
 }
 
-#modeTools {
-  margin-bottom: 10px;
-}
+button {
+  font-family: "Shadows Into Light Two", cursive;
+  font-size: 1.2em;
 
-#modeTools button {
-  margin: 0 5px;
-}
+  background: #f6f6f4;
+  color: #333;
 
-#modeTools .active {
-  background: #444;
-  color: white;
-}
+  border: 2px solid #cfd4c5;
+  border-radius: 8px;
 
-.delete-mode .flower {
+  padding: 6px 14px;
   cursor: pointer;
+
+  transition: all 0.15s ease;
 }
 
-.delete-mode .flower:hover {
-  outline: 3px solid red;
+button:hover {
+  background: #f0f3ec;
+  border-color: #b8c8ae;
+  transform: translateY(-1px);
 }
 
-.flower.selected {
-  outline: 3px solid rgb(0, 123, 255);
+button:active {
+  transform: translateY(1px);
+  background: #e6ebe2;
+}
+
+button:focus-visible {
+  outline: 2px solid #7aa874;
+  outline-offset: 2px;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+button.delete {
+  border-color: #d88c8c;
+  background: #f8eaea;
+}
+
+button.delete:hover {
+  background: #f3dede;
+  border-color: #c96f6f;
+}
+
+button.delete:active {
+  background: #e8cfcf;
 }
