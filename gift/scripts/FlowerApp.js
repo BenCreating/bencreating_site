@@ -34,7 +34,8 @@ export default class FlowerApp {
   }
 
   buildUrl(includeMessage = true) {
-    const url = new URL(window.location.origin)
+    const url = new URL(window.location.href)
+    url.pathname = url.pathname.substring(0, url.pathname.lastIndexOf("/") + 1)
 
     url.searchParams.set("d", this.bouquet.serialize())
 

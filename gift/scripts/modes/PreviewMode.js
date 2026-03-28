@@ -20,13 +20,13 @@ class PreviewMode {
 
     document.getElementById("edit").onclick = () => {
       const url = this.app.buildUrl()
-      url.pathname = "/edit.html"
+      url.pathname += "edit.html"
       window.location = url.toString()
     }
 
     document.getElementById("share").onclick = async () => {
       const url = this.app.buildUrl()
-      url.pathname = "/view.html"
+      url.pathname += "view.html"
 
       try {
         await navigator.clipboard.writeText(url.toString())

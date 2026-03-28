@@ -25,7 +25,7 @@ class EditMode {
 
     document.getElementById("preview").onclick = () => {
       const url = this.app.buildUrl()
-      url.pathname = "/preview.html"
+      url.pathname += "preview.html"
       window.location = url.toString()
     }
   }

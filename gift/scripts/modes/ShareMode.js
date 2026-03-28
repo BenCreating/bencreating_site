@@ -16,7 +16,7 @@ class ShareMode {
 
   setupUI() {
     document.getElementById("create").onclick = () => {
-      window.location = "/edit.html"
+      window.location += "edit.html"
     }
   }
 }
