@@ -46,7 +46,7 @@ export default class FlowerApp {
     return url
   }
 
-  autoResizeTextarea(maxHeight = 280) {
+  autoResizeTextarea(maxHeight = 400) {
     const el = this.textarea
 
     el.style.height = "auto"

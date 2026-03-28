@@ -36,11 +36,15 @@ body {
 #bouquet {
   width: 360px;
   height: 360px;
-  border: 2px dashed #b8c8ae;
+  border: none;
   margin: auto;
   position: relative;
   overflow: hidden;
   box-sizing: border-box;
+}
+
+#bouquet.editable {
+  border: 2px dashed #b8c8ae;
 }
 
 #message {
