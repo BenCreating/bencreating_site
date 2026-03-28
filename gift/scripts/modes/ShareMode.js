@@ -10,14 +10,6 @@ class ShareMode {
       mode: "share",
       readOnly: true
     })
-
-    this.setupUI()
-  }
-
-  setupUI() {
-    document.getElementById("create").onclick = () => {
-      window.location += "edit.html"
-    }
   }
 }
 
