@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flowers</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="module" src="scripts/modes/EditMode.js" defer></script>
+</head>
+
+<body>
+  <textarea id="message" maxlength="100" placeholder="Your message here…"></textarea>
+
+  <div id="bouquet">
+    <canvas id="bouquetCanvas" width="360" height="360"></canvas>
+  </div>
+
+  <div id="counter"></div>
+  <div id="palette"></div>
+
+  <div class="controls">
+    <button id="delete">Delete Selected</button>
+    <button id="preview">Preview</button>
+  </div>
+</body>
+</html>
+

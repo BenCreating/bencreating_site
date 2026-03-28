@@ -1,0 +1,151 @@
+@font-face {
+  font-family: 'Shadows Into Light Two';
+  src: url('assets/fonts/ShadowsIntoLightTwo-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #d8e2dc;
+}
+
+#palette {
+  width: 360px;
+  margin: 0 auto 0 auto;
+
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  box-sizing: border-box;
+  padding: 5px;
+  border: 2px solid #b8c8ae;
+}
+
+#palette img {
+  width: 60px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+  cursor: pointer;
+}
+
+#bouquet {
+  width: 360px;
+  height: 360px;
+  border: 2px dashed #b8c8ae;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#message {
+  width: 360px;
+  resize: none;
+  overflow-y: hidden;
+  white-space: pre-wrap;
+  font-size: 2em;
+  background: #f6f6f4;
+  border: 2px solid #cfd4c5;
+  outline: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  padding: 8px;
+
+  font-family: "Shadows Into Light Two", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+#message:focus,
+#message:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+#message::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.flower {
+  position: absolute;
+  width: 80px;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+  z-index: 1;
+}
+
+#bouquetCanvas {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
+
+.flower {
+  position: absolute;
+  z-index: 1;
+}
+
+.handle {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: limegreen;
+  border: 2px solid white;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  cursor: grab;
+}
+
+.handle.base {
+  background: saddlebrown;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+#counter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.palette-disabled img {
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+#modeTools {
+  margin-bottom: 10px;
+}
+
+#modeTools button {
+  margin: 0 5px;
+}
+
+#modeTools .active {
+  background: #444;
+  color: white;
+}
+
+.delete-mode .flower {
+  cursor: pointer;
+}
+
+.delete-mode .flower:hover {
+  outline: 3px solid red;
+}
+
+.flower.selected {
+  outline: 3px solid rgb(0, 123, 255);
+}
