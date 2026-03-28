@@ -77,6 +77,9 @@ export class Bouquet {
   }
 
   mouseDown(event) {
+    event.preventDefault()
+    this.canvas.setPointerCapture(event.pointerId)
+
     const rect = this.canvas.getBoundingClientRect()
     const x = event.clientX - rect.left
     const y = event.clientY - rect.top
@@ -121,7 +124,8 @@ export class Bouquet {
     this.draw()
   }
 
-  mouseUp(_event) {
+  mouseUp(event) {
+    this.canvas.releasePointerCapture(event.pointerId)
     this.draggedObject = null
   }
 
