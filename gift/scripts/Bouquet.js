@@ -13,8 +13,8 @@ export class Bouquet {
     this.messageBox = messageBox
     this.readOnly = options.readOnly ?? false
 
-    this.canvasWidth = canvas.width
-    this.canvasHeight = canvas.height
+    this.logicalWidth = canvas.clientWidth
+    this.logicalHeight = canvas.clientHeight
 
     this.flowers = []
 
@@ -27,36 +27,36 @@ export class Bouquet {
   }
 
   calculateGrid(){
-    const aspectRatio = this.canvasWidth / this.canvasHeight
+    const aspectRatio = this.logicalWidth / this.logicalHeight
 
     this.gridWidthSteps = Math.ceil(Math.sqrt(maxPositions * aspectRatio))
     this.gridHeightSteps = Math.ceil(maxPositions / this.gridWidthSteps)
 
-    this.gridStepWidth = this.canvasWidth / this.gridWidthSteps
-    this.gridStepHeight = this.canvasHeight / this.gridHeightSteps
+    this.gridStepWidth = this.logicalWidth / this.gridWidthSteps
+    this.gridStepHeight = this.logicalHeight / this.gridHeightSteps
   }
 
   addFlower(flowerData){
     if(this.flowers.length >= maxFlowers) return
 
     const flowerGridData = {
-      canvasWidth: this.canvasWidth,
-      canvasHeight:this.canvasHeight,
+      canvasWidth: this.logicalWidth,
+      canvasHeight: this.logicalHeight,
       gridStepWidth: this.gridStepWidth,
       gridStepHeight: this.gridStepHeight,
-      minX: Math.floor(this.canvasWidth / 5),
-      maxX: Math.floor(this.canvasWidth / 5) * 4,
-      maxY: Math.floor(this.canvasHeight / 2)
+      minX: Math.floor(this.logicalWidth / 5),
+      maxX: Math.floor(this.logicalWidth / 5) * 4,
+      maxY: Math.floor(this.logicalHeight / 2)
     }
     const stemGridData = {
-      canvasWidth: this.canvasWidth,
-      canvasHeight:this.canvasHeight,
+      canvasWidth: this.logicalWidth,
+      canvasHeight: this.logicalHeight,
       gridStepWidth: this.gridStepWidth,
       gridStepHeight: this.gridStepHeight,
-      minX: Math.floor(this.canvasWidth / 2) - 20,
-      maxX: Math.floor(this.canvasWidth / 2) + 20,
-      minY: (Math.floor(this.canvasHeight / 6) * 5) - 10,
-      maxY: (Math.floor(this.canvasHeight / 6) * 5) + 10
+      minX: Math.floor(this.logicalWidth / 2) - 20,
+      maxX: Math.floor(this.logicalWidth / 2) + 20,
+      minY: (Math.floor(this.logicalHeight / 6) * 5) - 10,
+      maxY: (Math.floor(this.logicalHeight / 6) * 5) + 10
     }
     const { gridX: flowerGridX, gridY: flowerGridY } = Flower.randomGridPosition(flowerGridData, 80)
     const { gridX: stemGridX, gridY: stemGridY } = Flower.randomGridPosition(stemGridData)
@@ -130,7 +130,12 @@ export class Bouquet {
   }
 
   draw(){
-    this.context.clearRect(0, 0, this.canvasWidth, this.canvasHeight)
+    this.context.clearRect(
+      0,
+      0,
+      this.canvas.clientWidth,
+      this.canvas.clientHeight
+    )
 
     this.flowers.forEach(flower => {
       flower.draw(this.context)

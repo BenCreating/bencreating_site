@@ -12,6 +12,8 @@ export default class FlowerApp {
     this.paletteElement = palette
     this.mode = mode
 
+    this.setupCanvasResolution()
+
     this.bouquet = new Bouquet(canvas, counter, textarea, { readOnly })
 
     if (palette) {
@@ -103,5 +105,19 @@ export default class FlowerApp {
     mirror.style.minHeight = this.textarea.offsetHeight + "px"
 
     return mirror
+  }
+
+  setupCanvasResolution() {
+    const ratio = window.devicePixelRatio || 1
+    const rect = this.canvas.getBoundingClientRect()
+
+    this.canvas.width = rect.width * ratio
+    this.canvas.height = rect.height * ratio
+
+    this.canvas.style.width = rect.width + "px"
+    this.canvas.style.height = rect.height + "px"
+
+    const context = this.canvas.getContext("2d")
+    context.setTransform(ratio, 0, 0, ratio, 0, 0)
   }
 }

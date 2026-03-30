@@ -53,8 +53,8 @@ export class ControlPoint {
   }
 
   moveToPixel(x, y) {
-    const maxX = this.bouquet.canvasWidth - this.width
-    const maxY = this.bouquet.canvasHeight - this.height
+    const maxX = this.bouquet.logicalWidth - this.width
+    const maxY = this.bouquet.logicalHeight - this.height
 
     const clampedX = Math.max(0, Math.min(maxX, x))
     const clampedY = Math.max(0, Math.min(maxY, y))
