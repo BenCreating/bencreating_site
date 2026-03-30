@@ -1,0 +1,18 @@
+{
+  "name": "BenCreating",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prepreview": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BenCreating/bencreating_site.git"
+  },
+  "devDependencies": {
+    "vite": "^8.0.3"
+  }
+}
