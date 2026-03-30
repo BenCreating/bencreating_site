@@ -151,11 +151,9 @@ button {
 button:hover {
   background: #f0f3ec;
   border-color: #b8c8ae;
-  transform: translateY(-1px);
 }
 
 button:active {
-  transform: translateY(1px);
   background: #e6ebe2;
 }
 
