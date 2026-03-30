@@ -47,7 +47,7 @@ body {
   border: 2px dashed #b8c8ae;
 }
 
-#message {
+.message {
   width: 360px;
   resize: none;
   overflow-y: hidden;
@@ -63,15 +63,17 @@ body {
   font-family: "Shadows Into Light Two", cursive;
   font-weight: 400;
   font-style: normal;
+
+  text-align: left;
 }
 
-#message:focus,
-#message:focus-visible {
+.message:focus,
+.message:focus-visible {
   outline: none;
   box-shadow: none;
 }
 
-#message::placeholder {
+.message::placeholder {
   color: rgba(0, 0, 0, 0.4);
 }
 
@@ -179,4 +181,12 @@ button.delete:hover {
 
 button.delete:active {
   background: #e8cfcf;
+}
+
+#gift {
+  background-color: #d8e2dc;
+  width: fit-content;
+  height: fit-content;
+  margin: 0 auto;
+  padding: 10px;
 }

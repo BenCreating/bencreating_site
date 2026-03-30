@@ -1,3 +1,4 @@
+import html2canvas from 'html2canvas'
 import { Bouquet } from "./Bouquet.js"
 import flowerList from "./flowerList.js"
 import Palette from "./Palette.js"
@@ -46,14 +47,61 @@ export default class FlowerApp {
     return url
   }
 
-  autoResizeTextarea(maxHeight = 400) {
+  autoResizeTextarea() {
     const el = this.textarea
 
     el.style.height = "auto"
-    const newHeight = Math.min(el.scrollHeight, maxHeight)
-    el.style.height = newHeight + "px"
+    el.style.height = el.scrollHeight + "px"
+  }
 
-    el.style.overflowY =
-      el.scrollHeight > maxHeight ? "auto" : "hidden"
+  async downloadImage() {
+    const giftElement = document.getElementById("gift")
+
+    // Hide textarea and insert mirror
+    const mirror = this.createTextareaMirror()
+    this.textarea.style.display = "none"
+    this.textarea.parentNode.insertBefore(mirror, this.textarea)
+
+    try {
+      const canvas = await html2canvas(giftElement, {
+        scale: window.devicePixelRatio
+      })
+
+      canvas.toBlob(blob => {
+        if (!blob) return
+
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "bouquet.png"
+
+        document.body.appendChild(link)
+        link.click()
+
+        // Cleanup
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url)
+      }, "image/png")
+
+    } catch (error) {
+      console.error("Failed to generate image:", error)
+    } finally {
+      mirror.remove()
+      this.textarea.style.display = ""
+    }
+  }
+
+  // The textarea element doesn't render well with html2canvas, so we create a div that looks like it instead.
+  createTextareaMirror() {
+    const mirror = document.createElement("div")
+    mirror.className = this.textarea.className
+    mirror.textContent = this.textarea.value
+
+    mirror.style.whiteSpace = "pre-wrap"
+    mirror.style.wordBreak = "break-word"
+    mirror.style.width = this.textarea.offsetWidth + "px"
+    mirror.style.minHeight = this.textarea.offsetHeight + "px"
+
+    return mirror
   }
 }

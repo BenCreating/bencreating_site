@@ -10,6 +10,14 @@ class ShareMode {
       mode: "share",
       readOnly: true
     })
+
+    this.setupUI()
+  }
+
+  setupUI() {
+    document.getElementById("download").addEventListener("click", () => {
+      this.app.downloadImage()
+    })
   }
 }
 
