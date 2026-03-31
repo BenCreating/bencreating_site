@@ -1,3 +1,10 @@
+:root {
+  --bg-color: #d8e2dc;
+  --border-color: #b8c8ae;
+  --canvas-width: 360px;
+  --canvas-height: 360px;
+}
+
 @font-face {
   font-family: 'Shadows Into Light Two';
   src: url('assets/fonts/ShadowsIntoLightTwo-Regular.ttf') format('truetype');
@@ -9,11 +16,11 @@
 body {
   font-family: sans-serif;
   text-align: center;
-  background-color: #d8e2dc;
+  background-color: var(--bg-color);
 }
 
 #palette {
-  width: 360px;
+  width: var(--canvas-width);
   margin: 0 auto 0 auto;
 
   display: flex;
@@ -23,7 +30,7 @@ body {
 
   box-sizing: border-box;
   padding: 5px;
-  border: 2px solid #b8c8ae;
+  border: 2px solid var(--border-color);
 }
 
 #palette img {
@@ -34,8 +41,8 @@ body {
 }
 
 #bouquet {
-  width: 360px;
-  height: 360px;
+  width: var(--canvas-width);
+  height: var(--canvas-height);
   border: none;
   margin: auto;
   position: relative;
@@ -44,11 +51,11 @@ body {
 }
 
 #bouquet.editable {
-  border: 2px dashed #b8c8ae;
+  border: 2px dashed var(--border-color);
 }
 
 .message {
-  width: 360px;
+  width: var(--canvas-width);
   resize: none;
   overflow-y: hidden;
   white-space: pre-wrap;
@@ -77,16 +84,6 @@ body {
   color: rgba(0, 0, 0, 0.4);
 }
 
-.flower {
-  position: absolute;
-  width: 80px;
-  cursor: grab;
-  user-select: none;
-  -webkit-user-drag: none;
-  touch-action: none;
-  z-index: 1;
-}
-
 #bouquetCanvas {
   position: absolute;
   left: 0;
@@ -95,29 +92,15 @@ body {
   touch-action: none;
 }
 
-.flower {
-  position: absolute;
-  z-index: 1;
-}
-
-.handle {
-  position: absolute;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: limegreen;
-  border: 2px solid white;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  cursor: grab;
-}
-
-.handle.base {
-  background: saddlebrown;
-}
-
 .controls {
-  margin-top: 20px;
+  display: flex;
+  margin: 20px auto;
+  width: var(--canvas-width);
+  justify-content: space-between;
+}
+
+.controls > :only-child {
+  margin: 0 auto;
 }
 
 #counter {
@@ -150,7 +133,7 @@ button {
 
 button:hover {
   background: #f0f3ec;
-  border-color: #b8c8ae;
+  border-color: var(--border-color);
 }
 
 button:active {
@@ -182,7 +165,7 @@ button.delete:active {
 }
 
 #gift {
-  background-color: #d8e2dc;
+  background-color: var(--bg-color);
   width: fit-content;
   height: fit-content;
   margin: 0 auto;
