@@ -12,13 +12,19 @@
 </head>
 
 <body>
-  <textarea id="message" readonly></textarea>
+  <div id="gift">
+    <textarea id="message" class="message" readonly></textarea>
 
-  <div id="bouquet">
-    <canvas id="bouquetCanvas" width="360" height="360"></canvas>
+    <div id="bouquet">
+      <canvas id="bouquetCanvas" width="360" height="360"></canvas>
+    </div>
   </div>
 
   <div class="controls">
+    <button id="download">Download Image</button>
+  </div>
+
+  <div>
     <a id="create" href="edit.html">Build Your Own Bouquet</a>
   </div>
 </body>
