@@ -164,6 +164,10 @@ button.delete:active {
   background: #e8cfcf;
 }
 
+#share {
+  min-width: 135px;
+}
+
 #gift {
   background-color: var(--bg-color);
   width: fit-content;

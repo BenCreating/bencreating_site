@@ -34,7 +34,7 @@ class PreviewMode {
         const button = document.getElementById("share")
         const originalText = button.textContent
 
-        button.textContent = "Copied!"
+        button.textContent = "Link Copied!"
         setTimeout(() => {
           button.textContent = originalText
         }, 1500)
