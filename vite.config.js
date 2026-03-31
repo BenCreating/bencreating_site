@@ -2,6 +2,10 @@ import { defineConfig } from "vite"
 import { resolve } from "path"
 
 export default defineConfig({
+  base: '/',
+  optimizeDeps: {
+    include: ['html2canvas']
+  },
   build: {
     rollupOptions: {
       input: {
@@ -11,5 +15,5 @@ export default defineConfig({
         view: resolve(__dirname, "gift/view.html"),
       }
     }
-  }
+  },
 })
