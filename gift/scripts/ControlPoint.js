@@ -30,7 +30,7 @@ export class ControlPoint {
     return { gridX, gridY }
   }
 
-  constructor(bouquet, stepX, stepY, width = 12, height = width) {
+  constructor(bouquet, stepX, stepY, width = 24, height = width) {
     this.bouquet = bouquet
     this.stepX = stepX
     this.stepY = stepY
