@@ -1,5 +1,6 @@
 export default [
-  { id: "rose", src: "/assets/images/flowers/rose.png" },
+  { id: "rose", src: "/assets/images/flowers/rose_0.png", angle_increment: 30 },
+  { id: "carnation", src: "/assets/images/flowers/carnation.png" },
   { id: "sunflower", src: "/assets/images/flowers/sunflower.png" },
   { id: "hydrangea", src: "/assets/images/flowers/hydrangea.png" },
   { id: "daisy", src: "/assets/images/flowers/daisy.png" },

@@ -4,6 +4,22 @@ export class Stem {
     this.basePoint = basePoint
   }
 
+  getTopTangent() {
+    const P0 = this.flower.getCenter()
+    const P2 = this.basePoint.getPixelPosition()
+    const Q = {
+      x: P2.x - 0.3 * (P2.x - P0.x),
+      y: P0.y + 0.3 * (P2.y - P0.y)
+    }
+
+    const t = this.estimateT(P0, Q, P2)
+    const C = this.controlFromPointOnCurve(P0, Q, P2, t)
+    return {
+      x: C.x - P0.x,
+      y: C.y - P0.y
+    }
+  }
+
   draw(context){
     const P0 = this.flower.getCenter()
     const P2 = this.basePoint.getPixelPosition()

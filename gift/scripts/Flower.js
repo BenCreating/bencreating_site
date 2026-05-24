@@ -16,6 +16,26 @@ export class Flower extends ControlPoint {
     this.basePoint = new ControlPoint(bouquet, stemStepX, stemStepY)
 
     this.stem = new Stem(this, this.basePoint)
+    this.currentAngle = null
+  }
+
+  updateFlowerImage() {
+    if (!this.data.angle_increment) return
+
+    const tangent = this.stem.getTopTangent()
+    let angle = Math.atan2(-tangent.x, tangent.y) * (180 / Math.PI)
+    if (angle < 0) angle += 360
+
+    const increment = this.data.angle_increment
+    const angleIndex = Math.round(angle / increment) * increment
+    const normalizedAngle = (angleIndex + 360) % 360
+
+    if (this.currentAngle !== normalizedAngle) {
+      this.currentAngle = normalizedAngle
+      const folder = this.data.src.substring(0, this.data.src.lastIndexOf('/'))
+      const ext = this.data.src.substring(this.data.src.lastIndexOf('.'))
+      this.image.src = `${folder}/${this.data.id}_${normalizedAngle}${ext}`
+    }
   }
 
   getCenter(){
@@ -27,6 +47,7 @@ export class Flower extends ControlPoint {
   }
 
   draw(context){
+    this.updateFlowerImage()
     this.stem.draw(context)
 
     const position = this.getPixelPosition()
