@@ -48,7 +48,6 @@ export class Flower extends ControlPoint {
 
   draw(context){
     this.updateFlowerImage()
-    this.stem.draw(context)
 
     const position = this.getPixelPosition()
     context.drawImage(this.image, position.x, position.y, this.width, this.height)
@@ -60,6 +59,10 @@ export class Flower extends ControlPoint {
 
       this.drawHandle(context, this.basePoint, "brown")
     }
+  }
+
+  drawStem(context) {
+    this.stem.draw(context)
   }
 
   drawHandle(context, point, color){

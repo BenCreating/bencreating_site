@@ -137,6 +137,11 @@ export class Bouquet {
       this.canvas.clientHeight
     )
 
+    // Draw the stems first so they go underneath everything
+    this.flowers.forEach(flower => {
+      flower.drawStem(this.context)
+    })
+
     this.flowers.forEach(flower => {
       flower.draw(this.context)
     })
