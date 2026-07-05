@@ -2,7 +2,7 @@ import Base64Codec from './Base64Codec.js'
 import { Flower } from "./Flower.js"
 import flowerList from './flowerList.js'
 
-const maxFlowers = 10
+const maxFlowers = 12
 const maxPositions = 64 * 64
 
 export class Bouquet {
